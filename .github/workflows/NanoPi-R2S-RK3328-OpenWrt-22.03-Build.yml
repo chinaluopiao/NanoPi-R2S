@@ -32,20 +32,17 @@ jobs:
           git clone https://gerrit.googlesource.com/git-repo repo
           sudo cp repo/repo /usr/bin/
 
-      - name: Download Source
+      - name: Clone Friendlywrt Manifests
         run: |
           mkdir friendlywrt-rk3328
           cd friendlywrt-rk3328
           repo init -u https://github.com/friendlyarm/friendlywrt_manifests -b master-v22.03 -m rk3328.xml --repo-url=https://gerrit.googlesource.com/git-repo  --no-clone-bundle
           repo sync -c  --no-clone-bundle
 
-      - name: Upgrade Libcap
+      - name: Download Source
         run: |
           cd friendlywrt-rk3328
           git clone https://github.com/openwrt/packages.git
-          rm -rf friendlywrt/package/libs/libcap
-          cp -r packages/libs/libcap friendlywrt/package/libs/
-          cat friendlywrt/package/libs/libcap/Makefile
 
       - name: Update Feeds
         run: |
