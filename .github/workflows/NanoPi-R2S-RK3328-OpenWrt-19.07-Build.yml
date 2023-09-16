@@ -40,7 +40,7 @@ jobs:
       - name: Upgrade Libcap
         run: |
           cd friendlywrt-rk3328
-          git clone -b openwrt-19.07 ttps://github.com/openwrt/packages.git
+          git clone -b openwrt-19.07 https://github.com/openwrt/packages.git
           rm -rf friendlywrt/package/libs/libcap
           cp -r packages/libs/libcap friendlywrt/package/libs/
           cat friendlywrt/package/libs/libcap/Makefile
