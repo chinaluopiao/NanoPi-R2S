@@ -20,6 +20,7 @@ jobs:
           sudo -E apt-get -qq clean
           git config --global user.email "chinaluopiao@gmail.com" && git config --global user.name "luopiao"
           wget -O - https://raw.githubusercontent.com/friendlyarm/build-env-on-ubuntu-bionic/master/install.sh | bash
+          sudo -E update-alternatives --install $(which python) python /usr/bin/python2.7 20
 
       - name: Install Repo
         run: |
